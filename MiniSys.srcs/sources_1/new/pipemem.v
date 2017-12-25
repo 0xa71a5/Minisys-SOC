@@ -57,7 +57,7 @@ module pipemem(we,smem,lmem,addr,datain,clk,dataout,wea);
     wire clk_revert;//reverse the input clk ,so the clk will be negedge to trigger the mem work
 
     blk_mem_gen_0 your_instance_name (
-      .clka(clk),    // input wire clka
+      .clka(~clk),    // input wire clka
       .ena(1'b1),      // input wire ena
       .wea(wea),      // input wire [3 : 0] wea
       .addra(addr[15:2]),  // input wire [13 : 0] addra

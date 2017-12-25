@@ -9,6 +9,8 @@ memory_initialization_vector =
 00663824,
 00664025,
 ac050000,
+ac050000,
+ac060004,
 ac060004,
 8c070000,
 8c080004,
