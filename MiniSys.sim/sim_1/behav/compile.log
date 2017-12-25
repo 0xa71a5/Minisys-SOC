@@ -116,7 +116,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/FPGA/MiniSys/MiniSys.srcs/source
 INFO: [VRFC 10-311] analyzing module pipelinedcpu
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/FPGA/MiniSys/MiniSys.srcs/sim_1/new/line_sim.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module line_sim
-INFO: [VRFC 10-2458] undeclared symbol pc4, assumed default net type wire [D:/FPGA/MiniSys/MiniSys.srcs/sim_1/new/line_sim.v:41]
+INFO: [VRFC 10-2458] undeclared symbol pc4, assumed default net type wire [D:/FPGA/MiniSys/MiniSys.srcs/sim_1/new/line_sim.v:45]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/FPGA/MiniSys/MiniSys.sim/sim_1/behav/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/Vivado/2016.2/data/ip/xpm/xpm_VCOMP.vhd" into library xpm

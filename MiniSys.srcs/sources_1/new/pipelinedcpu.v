@@ -22,7 +22,7 @@
 
 module pipelinedcpu(clock,resetn,pc,inst,ealu,malu,walu,
 pulse0,pulse1,cnt0,cnt1,pwm,
-da,db,dimm,pc4,dlmem,dsmem,wea//for test
+da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn//for testss
 );
     //定义外设的输入输出GPIO
     input pulse0;
@@ -32,7 +32,7 @@ da,db,dimm,pc4,dlmem,dsmem,wea//for test
     output pwm;
     //debug
     output [2:0] dlmem;
-    output [1:0] dsmem;
+    output [1:0] msmem;
     output [3:0] wea;
     //debug end
     
@@ -41,16 +41,24 @@ da,db,dimm,pc4,dlmem,dsmem,wea//for test
     wire [31:0] bpc,jpc,npc,pc4,ins,dpc4,inst,da,db,dimm,ea,eb,eimm;
     output [31:0] da,db,dimm,pc4;
     wire [31:0] epc4,mb,mmo,wmo,wdi;
+    output [31:0] wdi;//debug
     wire [4:0] drn,ern0,ern,mrn,wrn;
     wire [3:0] daluc,ealuc; //daluc = aluc
     wire [1:0] pcsource;
     wire wpcir;
     wire dwreg,dm2reg,dwmem,daluimm,dshift,djal;
+    output dwmem,ewmem,mwmem;//debug
+    
     wire djalr;
     wire [2:0] dlmem;
     wire [1:0] dsmem;
     wire ewreg,em2reg,ewmem,ealuimm,eshift,ejal;
-    wire ejalr,elmem,esmem;
+    wire ejalr;
+    wire [2:0] elmem;
+    wire [1:0] esmem;
+    output [1:0] esmem;
+    output [31:0] mb;//debug
+    output [4:0] wrn;
     wire mwreg,mm2reg,mwmem;
     wire [2:0] mlmem;
     wire [1:0] msmem;

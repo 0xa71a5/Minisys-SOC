@@ -33,12 +33,16 @@ module line_sim();
     wire [31:0] da,db,dimm;
     
     wire [2:0] dlmem;
-    wire [1:0] dsmem;
+    wire [1:0] msmem;
     wire [3:0] wea;
-    
+    wire dwmem,ewmem,mwmem;
+    wire [1:0] esmem;
+    wire [31:0] wdi;
+    wire [31:0] mb;
+    wire [4:0] wrn;
     pipelinedcpu lline(clk,clrn,pc,inst,ealu,malu,walu,
     pulse0,pulse1,cnt0,cnt1,pwm,
-    da,db,dimm,pc4,dlmem,dsmem,wea//for test
+    da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn//for test
     );
     always 
         begin

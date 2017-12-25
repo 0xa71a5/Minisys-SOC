@@ -49,6 +49,7 @@ module pipemem(we,smem,lmem,addr,datain,clk,dataout,wea);
     and(smem2_2,smem[1],~smem[0],addr[1],~addr[0]);//1010
     //lmem
 
+    //assign wea[3] = (smem0_0);//(smem0_0 | smem1_3 | smem2_2);
     assign wea[3] = (smem0_0 | smem1_3 | smem2_2)&we;
     assign wea[2] = (smem0_0 | smem1_2 | smem2_1 | smem2_2)&we;
     assign wea[1] = (smem0_0 | smem1_1 | smem2_0 | smem2_1)&we;

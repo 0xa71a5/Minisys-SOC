@@ -40,6 +40,8 @@ input cpdone;//use to judge whether the compare is successful
 
 output [2:0] lmem;// get bit
 output [1:0] smem;//save bit
+
+
 reg [1:0] fwda,fwdb;
 //R
 wire r_type,i_add,i_addu,i_sub,i_subu,i_and,
