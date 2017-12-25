@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Tue Nov 07 16:53:02 2017
+# Process ID: 6736
+# Current directory: C:/Users/Administrator/vivado/MiniSys/MiniSys.runs/synth_1
+# Command line: vivado.exe -log pipeidcu.vds -mode batch -messageDb vivado.pb -notrace -source pipeidcu.tcl
+# Log file: C:/Users/Administrator/vivado/MiniSys/MiniSys.runs/synth_1/pipeidcu.vds
+# Journal file: C:/Users/Administrator/vivado/MiniSys/MiniSys.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pipeidcu.tcl -notrace
+Command: synth_design -top pipeidcu -part xc7a100tfgg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+ERROR: [Synth 8-1031] rstequ is not declared [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:23]
+ERROR: [Synth 8-1031] wmem is not declared [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:24]
+ERROR: [Synth 8-2537] port rsrtequ is not defined [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:26]
+ERROR: [Synth 8-2537] port wmen is not defined [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:29]
+ERROR: [Synth 8-1031] bltzal is not declared [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:162]
+ERROR: [Synth 8-1031] bltzal is not declared [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:166]
+INFO: [Synth 8-2350] module pipeidcu ignored due to previous errors [C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v:23]
+Failed to read verilog 'C:/Users/Administrator/vivado/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v'
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 0 Warnings, 0 Critical Warnings and 7 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 07 16:53:10 2017...
