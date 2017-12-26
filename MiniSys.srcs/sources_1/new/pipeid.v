@@ -22,7 +22,9 @@
 
 module pipeid(mwreg,mrn,ern,ewreg,em2reg,mm2reg,dpc4,inst,wrn,
 wdi,ealu,malu,mmo,wwreg,clk,clrn,bpc,jpc,pcsource,nostall,wreg,
-m2reg,wmem,aluc,aluimm,a,b,imm,rn,shift,jal,jalr,lmem,smem);
+m2reg,wmem,aluc,aluimm,a,b,imm,rn,shift,jal,jalr,lmem,smem,
+compare,cpdone//debug
+);
 input [31:0] dpc4,inst,wdi,ealu,malu,mmo;
 input [4:0] ern,mrn,wrn;
 input mwreg,ewreg,em2reg,mm2reg,wwreg;
@@ -33,8 +35,12 @@ output [3:0] aluc;
 output [1:0] pcsource;
 output nostall,wreg,m2reg,wmem,aluimm,shift,jal,jalr;
 //for memory
+//debug begin
 output [2:0] lmem;
 output [1:0] smem;
+output [1:0] compare;
+output cpdone;
+//debug end
 wire [5:0] op,func;
 wire [4:0] rs,rt,rd;
 wire [31:0] qa,qb,br_offset;
@@ -54,7 +60,7 @@ regfile rf (rs,rt,wdi,wrn,wwreg,~clk,clrn,qa,qb);
 mux2x5 des_reg_no (rd,rt,regrt,rn);
 mux4x32 alu_a (qa,ealu,malu,mmo,fwda,a);
 mux4x32 alu_b (qb,ealu,malu,mmo,fwdb,b);
-//pipeidcp compare (a,compare,cpdone);
+pipeidcp comp_uut (a,compare,cpdone);
 assign rsrtequ = ~|(a^b); //rsrtequ = (a==b)
 assign e = sext &inst[15];
 assign ext16 = {16{e}};

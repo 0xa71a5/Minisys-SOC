@@ -191,7 +191,7 @@ assign compare [1] = i_blez | i_bltz | i_bltzal;
 assign compare [0] = i_bgtz | i_bltz | i_bltzal;
 assign pcsource [1] = i_jr | i_j | i_jal | i_jalr;
 assign pcsource [0] = i_beq & rsrtequ | i_bne & ~rsrtequ | i_j | i_jal | 
-(i_bgez | i_bgezal | i_bgtz | i_blez | i_bltz |i_bltzal) & cpdone;
+((i_bgez | i_bgezal | i_bgtz | i_blez | i_bltz |i_bltzal) & cpdone);
 //lmem and smem
 assign lmem [0] = i_lb | i_lbu;
 assign lmem [1] = i_lh | i_lhu;

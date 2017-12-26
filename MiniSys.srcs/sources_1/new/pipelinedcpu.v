@@ -22,7 +22,7 @@
 
 module pipelinedcpu(clock,resetn,pc,inst,ealu,malu,walu,
 pulse0,pulse1,cnt0,cnt1,pwm,
-da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn//for testss
+da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone//for testss
 );
     //定义外设的输入输出GPIO
     input pulse0;
@@ -63,13 +63,18 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn//for testss
     wire [2:0] mlmem;
     wire [1:0] msmem;
     wire wwreg,wm2reg;
+    
+    output [1:0] compare;//debug
+    output cpdone;//debug
+    
     pipepc progcnt (npc,wpcir,clock,resetn,pc);
     pipeif if_stage (pcsource,pc,bpc,da,jpc,npc,pc4,ins);
     pipeir inst_reg (pc4,ins,wpcir,clock,resetn,dpc4,inst);
     pipeid id_stage (mwreg,mrn,ern,ewreg,em2reg,mm2reg,dpc4,inst,
                      wrn,wdi,ealu,malu,mmo,wwreg,clock,resetn,
                      bpc,jpc,pcsource,wpcir,dwreg,dm2reg,dwmem,
-                     daluc,daluimm,da,db,dimm,drn,dshift,djal,djalr,dlmem,dsmem);
+                     daluc,daluimm,da,db,dimm,drn,dshift,djal,djalr,dlmem,dsmem,
+                     compare,cpdone);//debug
     pipedereg de_reg (dwreg,dm2reg,dwmem,daluc,daluimm,da,db,dimm,
                       drn,dshift,djal,djalr,dlmem,dsmem,dpc4,clock,resetn,
                       ewreg,em2reg,ewmem,ealuc,ealuimm,ea,eb,eimm,
