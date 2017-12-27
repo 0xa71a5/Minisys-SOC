@@ -22,9 +22,10 @@
 
 module clock_div(
 clk, //100MHz
-clk_sys //1Hz
+clk_sys ,reset//1Hz
     );
    input clk;
+   input reset;
    output clk_sys;
     reg clk_sys = 0;
     reg [25:0] div_counter = 0;

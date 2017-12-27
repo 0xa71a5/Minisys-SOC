@@ -44,9 +44,10 @@ module line_sim();
     wire [4:0] wrn;
     wire [1:0] compare;
     wire cpdone;
+    wire clock;
     pipelinedcpu lline(clk,clrn,pc,inst,ealu,malu,walu,
     pulse0,pulse1,cnt0,cnt1,pwm,digital,ens,
-    da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone//for test
+    da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone,clock//for test
     );
     always 
         begin

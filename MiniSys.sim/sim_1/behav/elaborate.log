@@ -1,13 +1,58 @@
 Vivado Simulator 2016.2
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto bf4d60825a14418bb25d40e51d870108 --debug typical --relax --mt 2 -L xil_defaultlib -L xpm -L unisims_ver -L unimacro_ver -L secureip --snapshot sim_line_simple_behav xil_defaultlib.sim_line_simple xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto bf4d60825a14418bb25d40e51d870108 --debug typical --relax --mt 2 -L xil_defaultlib -L xpm -L blk_mem_gen_v8_3_3 -L unisims_ver -L unimacro_ver -L secureip --snapshot sim_line_simple_behav xil_defaultlib.sim_line_simple xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [D:/FPGA/MiniSys/MiniSys.ip_user_files/ipstatic/blk_mem_gen_v8_3_3/simulation/blk_mem_gen_v8_3.v:2415]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.clock_div
+Compiling module xil_defaultlib.clockDiv
+Compiling module xil_defaultlib.mux4x32
+Compiling module xil_defaultlib.add
+Compiling module xil_defaultlib.g_p
+Compiling module xil_defaultlib.cla_2
+Compiling module xil_defaultlib.cla_4
+Compiling module xil_defaultlib.cla_8
+Compiling module xil_defaultlib.cla_16
+Compiling module xil_defaultlib.cla_32
+Compiling module xil_defaultlib.cla32
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3_output_stage(...
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3_output_stage(...
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3_softecc_outpu...
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3_mem_module(C_...
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_1
+Compiling module xil_defaultlib.pipeimem
+Compiling module xil_defaultlib.pipeif
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3_mem_module(C_...
+Compiling module blk_mem_gen_v8_3_3.blk_mem_gen_v8_3_3(C_FAMILY="art...
+Compiling module xil_defaultlib.blk_mem_gen_0
+Compiling module xil_defaultlib.pipemem
+Compiling module xil_defaultlib.dev_timer
+Compiling module xil_defaultlib.dev_pwm
+Compiling module xil_defaultlib.dev_segment
+Compiling module xil_defaultlib.pipedevices
+Compiling module xil_defaultlib.MemorIo
+Compiling module xil_defaultlib.dffe32
+Compiling module xil_defaultlib.pipepc
+Compiling module xil_defaultlib.pipeir
+Compiling module xil_defaultlib.pipeidcu
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.mux2x5
+Compiling module xil_defaultlib.pipeidcp
+Compiling module xil_defaultlib.pipeid
+Compiling module xil_defaultlib.pipedereg
+Compiling module xil_defaultlib.mux2x32
+Compiling module xil_defaultlib.alucontrol
+Compiling module xil_defaultlib.addsub32
+Compiling module xil_defaultlib.shift
+Compiling module xil_defaultlib.mux8x32
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.pipeexe
+Compiling module xil_defaultlib.pipeemreg
+Compiling module xil_defaultlib.pipemwreg
 Compiling module xil_defaultlib.pipelinedcpu
 Compiling module xil_defaultlib.sim_line_simple
 Compiling module xil_defaultlib.glbl

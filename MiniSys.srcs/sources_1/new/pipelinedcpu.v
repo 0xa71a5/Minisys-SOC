@@ -24,7 +24,7 @@ module pipelinedcpu(inputclock,resetn,pulse0,pulse1,cnt0,cnt1,pwm,digital,ens);/
 module pipelinedcpu
 (inputclock,resetn,pc,inst,ealu,malu,walu,
 pulse0,pulse1,cnt0,cnt1,pwm,digital,ens,
-da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone//for testss
+da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone,clock//for testss
 );//仿真时用这个
 */
     //定义外设的输入输出GPIO
@@ -36,9 +36,12 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     output cnt1;
     output pwm;
     input inputclock,resetn;
+    
+    wire resetn;
     wire clock;
     //assign clock=inputclock;//仿真时候用这个
-    clock_div uut_clk(inputclock,clock);//下载板子时用这个 1khz
+    clockDiv clkdivider(inputclock,clock,resetn);//下载板子时用这个 1khz
+    
     /*
     //debug
     output [2:0] dlmem;
@@ -53,8 +56,11 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     output [31:0] mb;//debug
     output [4:0] wrn;
     output dwmem,ewmem,mwmem;//debug
+    output clock;
     //debug end
     */
+    
+    
     wire [3:0] wea;
     wire [31:0] pc,ealu,malu,walu;
     wire [31:0] bpc,jpc,npc,pc4,ins,dpc4,inst,da,db,dimm,ea,eb,eimm;
@@ -81,7 +87,7 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     wire wwreg,wm2reg;
 
 
-    pipeif if_stage (pcsource,pc,bpc,da,jpc,npc,pc4,ins);
+    pipeif if_stage (pcsource,pc,bpc,da,jpc,npc,pc4,ins,inputclock);
     MemorIo mem_io_stage(mwmem,msmem,mlmem,malu,mb,clock,mmo,resetn,pulse0,pulse1,cnt0,cnt1,pwm,wea,digital,ens);
     
                           
@@ -99,7 +105,6 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
                        ejal,ejalr,ern,ealu);
     pipeemreg em_reg (ewreg,em2reg,ewmem,elmem,esmem,ealu,eb,ern,clock,resetn,
                       mwreg,mm2reg,mwmem,mlmem,msmem,malu,mb,mrn);
-    //pipemem mem_stage (mwmem,msmem,mlmem,malu,mb,clock,mmo);
     pipemwreg mw_reg (mwreg,mm2reg,mmo,malu,mrn,clock,resetn,
                           wwreg,wm2reg,wmo,walu,wrn);
     mux2x32 wb_stage (walu,wmo,wm2reg,wdi);

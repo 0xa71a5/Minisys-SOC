@@ -141,7 +141,7 @@ begin
             4'd6:digital=8'b01000001&{7'b1111111,~dot_enable_current};
             4'd7:digital=8'b00011111&{7'b1111111,~dot_enable_current};
             4'd8:digital=8'b00000001&{7'b1111111,~dot_enable_current};
-            4'd9:digital=8'b00011001&{7'b1111111,~dot_enable_current};
+            4'd9:digital=8'b00001001&{7'b1111111,~dot_enable_current};
             4'ha:digital=8'b00010001&{7'b1111111,~dot_enable_current};
             4'hb:digital=8'b11000001&{7'b1111111,~dot_enable_current};
             4'hc:digital=8'b01100011&{7'b1111111,~dot_enable_current};
