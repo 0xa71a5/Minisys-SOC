@@ -26,6 +26,8 @@ module line_sim();
     wire cnt0;
     wire cnt1;
     wire pwm;
+    wire [7:0] digital;
+    wire [7:0] ens;
     reg [31:0] i;
     
     reg clk,clrn;
@@ -43,7 +45,7 @@ module line_sim();
     wire [1:0] compare;
     wire cpdone;
     pipelinedcpu lline(clk,clrn,pc,inst,ealu,malu,walu,
-    pulse0,pulse1,cnt0,cnt1,pwm,
+    pulse0,pulse1,cnt0,cnt1,pwm,digital,ens,
     da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone//for test
     );
     always 

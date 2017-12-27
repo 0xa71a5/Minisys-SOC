@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Dec 24 17:40:14 2017">
+<application name="pa" timeStamp="Wed Dec 27 16:56:40 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="2fb03f9b2e7442bcbe142eadec024128" type="ProjectID"/>
 <property name="ProjectIteration" value="2" type="ProjectIteration"/>
@@ -17,34 +17,39 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="2" type="JavaHandler"/>
+<property name="AddSources" value="11" type="JavaHandler"/>
 <property name="CloseProject" value="0" type="JavaHandler"/>
-<property name="ReportIPStatus" value="1" type="JavaHandler"/>
+<property name="EditProperties" value="2" type="JavaHandler"/>
+<property name="EditRedo" value="1" type="JavaHandler"/>
+<property name="ManageCompositeTargets" value="72" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
+<property name="RecustomizeCore" value="9" type="JavaHandler"/>
+<property name="ReportIPStatus" value="2" type="JavaHandler"/>
 <property name="RunImplementation" value="1" type="JavaHandler"/>
-<property name="RunSynthesis" value="0" type="JavaHandler"/>
-<property name="SetTopNode" value="2" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="3" type="JavaHandler"/>
-<property name="SimulationRun" value="2" type="JavaHandler"/>
+<property name="RunSynthesis" value="13" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="4" type="JavaHandler"/>
+<property name="SetTopNode" value="8" type="JavaHandler"/>
+<property name="ShowView" value="5" type="JavaHandler"/>
+<property name="SimulationClose" value="1" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="79" type="JavaHandler"/>
+<property name="SimulationRun" value="23" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="2" type="JavaHandler"/>
+<property name="ToggleViewNavigator" value="1" type="JavaHandler"/>
 <property name="UpgradeIP" value="2" type="JavaHandler"/>
+<property name="WaveformSaveConfiguration" value="2" type="JavaHandler"/>
+<property name="ui.views.b.h.e" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Synthesis, Run Synthesis], 17, false" value="1" type="GuiResourceData"/>
 <property name="PAResourceQtoS.StateMonitor_CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="RDIResource.ProgressDialog_BACKGROUND, Background" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1013, 482" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 389, 289" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 462, 293" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 607, 414" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 714, 441" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 868, 479" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 909, 469" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, da[31:0]], 13, true" value="1" type="GuiResourceData"/>
+<property name="pipelinedcpu.v, 23, 121" value="1" type="GuiResourceData"/>
+<property name="pipelinedcpu.v, 39, 212" value="1" type="GuiResourceData"/>
+<property name="pipelinedcpu.v, 58, 122" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="22" type="GuiMode"/>
+<property name="GuiMode" value="24" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="17" type="TclMode"/>
+<property name="TclMode" value="19" type="TclMode"/>
 </item>
 </section>
 </application>

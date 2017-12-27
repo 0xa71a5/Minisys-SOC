@@ -22,7 +22,7 @@
 
 module pipedevices(
 input we,input [31:0] address,input [31:0] datain,input clk,input reset,output [31:0] dataout,input enable,
-input pulse0,input pulse1,output cnt0,output cnt1,output pwm//外设线
+input pulse0,input pulse1,output cnt0,output cnt1,output pwm,output [7:0] digital,output [7:0] ens//外设线
     );
    
     
@@ -48,9 +48,16 @@ input pulse0,input pulse1,output cnt0,output cnt1,output pwm//外设线
     assign Iow_pwm = we;
     assign dataout_pwm = 0;
     
+    wire cs_seg;
+    wire Iow_seg;
+    wire [31:0] dataout_seg;
+    assign Iow_seg = we;
+    assign dataout_seg = 0;
+    
     reg [15:0] cs_bus;//考虑reg可能存在延迟问题
     assign cs_pwm = enable&cs_bus[3];
     assign cs_timer = enable&cs_bus[2];
+    assign cs_seg  = enable&cs_bus[0];
     //4-16译码器
     always @(address[7:4] or reset)
     begin
@@ -83,12 +90,12 @@ input pulse0,input pulse1,output cnt0,output cnt1,output pwm//外设线
     
     
     //input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [15:0] Wdata, output [15:0] Rdata,input Pulse0 ,input Pulse1,output Cout0,output Cout1
-    dev_timer timer01(reset,address[2:0],cs_timer,clk,Iow_timer,Ior_timer,datain[15:0],dataout_timer[15:0],pulse0,pulse1,cnt0,cnt1);
-    
-    
-    
+    dev_timer timer01(reset,address[2:0],cs_timer,clk,Iow_timer,Ior_timer,datain[15:0],dataout_timer[15:0],pulse0,pulse1,cnt0,cnt1);//Error 
+
     //input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input [15:0] Wdata,output Pwm    
     dev_pwm pwm0(reset,address[2:0],cs_pwm,clk,Iow_pwm,datain[15:0],pwm);
     
+    //assign cnt1 = cs_seg;
+    dev_segment seg0(reset,address[2:0],cs_seg,clk,Iow_seg,datain[15:0],digital,ens);
     
 endmodule
