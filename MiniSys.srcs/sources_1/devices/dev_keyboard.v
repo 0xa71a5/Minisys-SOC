@@ -96,7 +96,7 @@ input Reset,input [1:0] Address,input Cs,input Clk,input Ior ,output [15:0] Rdat
                             4'b0111:begin key_reg[15:0] = 1;state=1;    end
                             4'b1011:begin key_reg[15:0] = 2;state=1;    end
                             4'b1101:begin key_reg[15:0] = 3;state=1;    end
-                            4'b1110:begin key_reg[15:0] = 4;state=1;    end
+                            4'b1110:begin key_reg[15:0] = 16'h000a;state=1;    end
                             default:begin                   state=3;    end
                         endcase
                 end
@@ -108,10 +108,10 @@ input Reset,input [1:0] Address,input Cs,input Clk,input Ior ,output [15:0] Rdat
 
                 8'd4:begin
                         case(Line[3:0])
-                            4'b0111:begin key_reg[15:0] = 5;state=3;    end
-                            4'b1011:begin key_reg[15:0] = 6;state=3;    end
-                            4'b1101:begin key_reg[15:0] = 7;state=3;    end
-                            4'b1110:begin key_reg[15:0] = 8;state=3;    end
+                            4'b0111:begin key_reg[15:0] = 4;state=3;    end
+                            4'b1011:begin key_reg[15:0] = 5;state=3;    end
+                            4'b1101:begin key_reg[15:0] = 6;state=3;    end
+                            4'b1110:begin key_reg[15:0] = 16'h000b;state=3;    end
                             default:begin                   state=5;    end
                         endcase
                 end
@@ -123,10 +123,10 @@ input Reset,input [1:0] Address,input Cs,input Clk,input Ior ,output [15:0] Rdat
 
                 8'd6:begin
                         case(Line[3:0])
-                            4'b0111:begin key_reg[15:0] = 9 ;state=5;    end
-                            4'b1011:begin key_reg[15:0] = 10;state=5;    end
-                            4'b1101:begin key_reg[15:0] = 11;state=5;    end
-                            4'b1110:begin key_reg[15:0] = 12;state=5;    end
+                            4'b0111:begin key_reg[15:0] = 7 ;state=5;    end
+                            4'b1011:begin key_reg[15:0] = 8;state=5;    end
+                            4'b1101:begin key_reg[15:0] = 9;state=5;    end
+                            4'b1110:begin key_reg[15:0] = 16'h000c;state=5;    end
                             default:begin                    state=7;    end
                         endcase
                 end
@@ -138,10 +138,10 @@ input Reset,input [1:0] Address,input Cs,input Clk,input Ior ,output [15:0] Rdat
 
                 8'd8:begin
                         case(Line[3:0])
-                            4'b0111:begin key_reg[15:0] = 13;state=7;    end
-                            4'b1011:begin key_reg[15:0] = 14;state=7;    end
-                            4'b1101:begin key_reg[15:0] = 15;state=7;    end
-                            4'b1110:begin key_reg[15:0] = 16;state=7;    end
+                            4'b0111:begin key_reg[15:0] = 16'h000e;state=7;    end
+                            4'b1011:begin key_reg[15:0] = 0;state=7;    end
+                            4'b1101:begin key_reg[15:0] = 16'h000f;state=7;    end
+                            4'b1110:begin key_reg[15:0] = 16'h000d;state=7;    end
                             default:begin                    state=0;    end
                         endcase
                 end
