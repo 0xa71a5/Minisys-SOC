@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Sun Dec 31 22:47:44 2017
+# Process ID: 171676
+# Current directory: D:/FPGA/MiniSys/MiniSys.runs/impl_1
+# Command line: vivado.exe -log pipelinedcpu.vdi -applog -messageDb vivado.pb -mode batch -source pipelinedcpu.tcl -notrace
+# Log file: D:/FPGA/MiniSys/MiniSys.runs/impl_1/pipelinedcpu.vdi
+# Journal file: D:/FPGA/MiniSys/MiniSys.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source pipelinedcpu.tcl -notrace
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at D:/Vivado/2016.2/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 54 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.2
+INFO: [Device 21-403] Loading part xc7a100tfgg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization

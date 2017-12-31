@@ -22,13 +22,22 @@
 
 module clockDiv(
 clk, //100MHz
-clk_sys ,resetn//1Hz
+clk_sys ,resetn,count//1Hz
     );
+   input [31:0] count;
+   reg [31:0] count_reg;
+   
    input clk;
    input resetn;
    output clk_sys;
     reg clk_sys = 0;
     reg [25:0] div_counter = 0;
+    
+    always @(count)
+    begin
+        count_reg = count;
+    end
+    
    always @(posedge clk or negedge resetn) 
    begin
    if(resetn==1'b0)
@@ -36,8 +45,8 @@ clk_sys ,resetn//1Hz
         clk_sys<=0;
         div_counter<=0;
     end
-   else if(div_counter>=50000)
-    begin //1Hz 50000000
+   else if(div_counter>=count_reg)//5:10Mhz
+    begin //1Hz 50 000 000
         clk_sys<=~clk_sys;
         div_counter<=0;
     end 

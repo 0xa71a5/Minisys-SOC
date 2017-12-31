@@ -18,31 +18,15 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module pipelinedcpu(inputclock,resetn,pulse0,pulse1,cnt0,cnt1,pwm,digital,ens);//下载板子时用这个
+module pipelinedcpu(inputclock,reset,cnt0,cnt1,pwm,digital,ens,Line,Col,switches);//下载板子时用这个
 
 /*
 module pipelinedcpu
-(inputclock,resetn,pc,inst,ealu,malu,walu,
-pulse0,pulse1,cnt0,cnt1,pwm,digital,ens,
+(inputclock,reset,pc,inst,ealu,malu,walu,
+cnt0,cnt1,pwm,digital,ens,switches,Line,Col,
 da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone,clock//for testss
 );//仿真时用这个
-*/
-    //定义外设的输入输出GPIO
-    input pulse0;
-    input pulse1;
-    output [7:0] digital;
-    output [7:0] ens;
-    output cnt0;
-    output cnt1;
-    output pwm;
-    input inputclock,resetn;
-    
-    wire resetn;
-    wire clock;
-    //assign clock=inputclock;//仿真时候用这个
-    clockDiv clkdivider(inputclock,clock,resetn);//下载板子时用这个 1khz
-    
-    /*
+
     //debug
     output [2:0] dlmem;
     output [1:0] msmem;
@@ -58,8 +42,37 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     output dwmem,ewmem,mwmem;//debug
     output clock;
     //debug end
-    */
+   */
+
+    //定义外设的输入输出GPIO
+    //input pulse0;
+    //input pulse1;
+    wire pulse0;
+    wire pulse1;
+    wire resetn;
+    assign resetn = ~reset;
+    output [7:0] digital;
+    output [7:0] ens;
+    output cnt0;
+    output cnt1;
+    output pwm;
+    input inputclock,reset;
+    input [3:0] Line;
+    output [3:0] Col;
+    input [15:0] switches;
+    wire clock;
+    wire segment_clock;
+    wire keyboard_clock;
     
+    //仿真的时候用下面的时钟
+    //clockDiv sysclkdivider(inputclock,clock,resetn,32'd5);//仿真时候用这个
+    //clockDiv segmentdivider(inputclock,segment_clock,resetn,32'd5);//仿真时候用这个
+    //debug end
+    
+    
+    clockDiv sysclkdivider(inputclock,clock,resetn,32'd5);//下载板子时用这个 1khz
+    clockDiv segmentdivider(inputclock,segment_clock,resetn,32'd50000);//下载板子时数码管刷新时钟
+    assign keyboard_clock = segment_clock;
     
     wire [3:0] wea;
     wire [31:0] pc,ealu,malu,walu;
@@ -88,7 +101,9 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
 
 
     pipeif if_stage (pcsource,pc,bpc,da,jpc,npc,pc4,ins,inputclock);
-    MemorIo mem_io_stage(mwmem,msmem,mlmem,malu,mb,clock,mmo,resetn,pulse0,pulse1,cnt0,cnt1,pwm,wea,digital,ens);
+    MemorIo mem_io_stage(mwmem,msmem,mlmem,malu,mb,clock,mmo,resetn,pulse0,pulse1,cnt0,cnt1,pwm,wea, 
+                        digital,ens,segment_clock,keyboard_clock,Line,Col,switches
+                        );
     
                           
     pipepc progcnt (npc,wpcir,clock,resetn,pc);

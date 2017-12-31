@@ -46,6 +46,7 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
     assign state_reg0[15:0] = {state0_wire_15,13'd0,state0_wire_1,state0_wire_0};
     reg refresh_reg0;
     reg keep_on_cnt_reg0 = 1;
+    reg timer0_read=0;
     //结束0号定时器定义
     
     
@@ -66,46 +67,70 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
     assign state_reg1[15:0] = {state1_wire_15,13'd0,state1_wire_1,state1_wire_0};
     reg refresh_reg1;
     reg keep_on_cnt_reg1 = 1;
+    reg timer1_read=0;
     //结束1号定时器定义
     
-    always @(posedge Clk) //要考虑时钟边沿因素 我这里暂时没有考虑
+    always @(posedge Clk or negedge Reset) //要考虑时钟边沿因素 我这里暂时没有考虑
     begin
-        if(Cs==1'b1)//选中外设
+        if(Reset==0)
+        begin
+                timer0_read = 0;
+                timer1_read = 0;
+            end
+        else if(Cs==1'b1)//选中外设
         begin
             if(Iow==1'b1)//写寄存器操作
                 begin
+                    timer0_read = 0;
+                    timer1_read = 0;
                     case(Address[2:0])
                         3'b000: begin
                                     function_reg0[15:0] = Wdata[15:0]; //写0号定时器的方式寄存器
                                     refresh_reg0 = 1;
-                                    //这里会有潜在的bug  如果设定为不循环模式 那么一次工作完成后将会无法开启第二次工作
+                                    refresh_reg1 = 0;
+                                                                        //这里会有潜在的bug  如果设定为不循环模式 那么一次工作完成后将会无法开启第二次工作
                                     //需要在这里每次检测到写方式寄存器的时候进行 使能工作位 keep_on_xx_reg0 为1 可以用一个或门
                                     //需要在这里每次检测到写方式寄存器的时候进行 使能工作位 keep_on_xx_reg0 为1 可以用一个或门
                                 end
                         3'b010: begin
                                     function_reg1[15:0] = Wdata[15:0]; //写1号定时器的方式寄存器
+                                    refresh_reg0 = 0;
                                     refresh_reg1 = 1;
                                 end
                         3'b100: begin
                                     target_counter_reg0[15:0] = Wdata[15:0] ; //写0号定时器的初值寄存器
                                     refresh_reg0 = 1;
+                                    refresh_reg1 = 0;
                                 end
                         3'b110: begin
                                     target_counter_reg1[15:0] = Wdata[15:0] ; //写1号定时器的初值寄存器
+                                    refresh_reg0 = 0;
                                     refresh_reg1 = 1;
+                                end
+                        
+                        default:
+                                begin
+                                    refresh_reg0 = 0;
+                                    refresh_reg1 = 0;
                                 end
                     endcase
                 end
             else if(Ior == 1'b1)//读寄存器操作
                 begin
+                    refresh_reg0 = 0;
+                    refresh_reg1 = 0;
                     case(Address[2:0])//判断寄存器地址
                         3'b000: begin //读定时器0的状态寄存器
                                       Rdata[15:0] = state_reg0[15:0] ; //读0号定时器的状态寄存器
-                                      state0_wire_1 = 0; state0_wire_0=0;//state_reg0[14:0] = 0;//读后清零寄存器 保留了最高位查看是否开始工作
+                                      //state0_wire_1 = 0; state0_wire_0=0;//state_reg0[14:0] = 0;//读后清零寄存器 保留了最高位查看是否开始工作
+                                      timer0_read = 1;
+                                      timer1_read = 0;
                                 end
                         3'b010: begin //读定时器1的状态寄存器
                                       Rdata[15:0] = state_reg1[15:0] ; //读1号定时器的状态寄存器
-                                      state1_wire_1 = 0; state1_wire_0=0;//读后清零寄存器 保留了最高位查看是否开始工作
+                                      //state1_wire_1 = 0; state1_wire_0=0;//读后清零寄存器 保留了最高位查看是否开始工作
+                                      timer0_read = 0;                             
+                                      timer1_read = 1;
                                 end
                         3'b100:begin //读定时器0的当前值寄存器
                                       Rdata[15:0] = cur_value_reg0[15:0];
@@ -113,8 +138,28 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
                         3'b110:begin //读定时器1的当前值寄存器
                                       Rdata[15:0] = cur_value_reg1[15:0];
                                end
+                        3'b111:begin
+                                      Rdata[15:0] = 16'h1234;
+                               end
+                        default: begin
+                                    timer0_read = 0;
+                                    timer1_read = 0;
+                                 end 
                     endcase
                 end
+            else 
+                begin
+                    timer0_read = 0;
+                    timer1_read = 0;
+                    refresh_reg0 = 0;
+                    refresh_reg1 = 0;
+                end
+        end
+        else begin
+            timer0_read = 0;
+            timer1_read = 0;
+            refresh_reg0 = 0;
+            refresh_reg1 = 0;
         end
     end
 
@@ -140,7 +185,11 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
                     else
                         begin
                             cur_cnt_value_reg0 = 0;
-                            state0_wire_1 = 1; //计数到
+                            if(timer0_read==1'b0)//如果当前没有读过寄存器
+                                state0_wire_1 = 1; //计数到
+                            else 
+                                state0_wire_1 = 0;
+
                             if(function_reg0[1] == 1'b0)//判断当前是否是循环模式
                                 begin
                                     keep_on_cnt_reg0 = 0;
@@ -171,7 +220,6 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
             begin
                 cur_value_reg0[15:0]=target_counter_reg0[15:0];
                 run_one_period0 = 1;
-                refresh_reg0 = 0;
             end
         else
             begin
@@ -188,7 +236,10 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
                             begin
                                 Cout0 = 0;//输出一个低电平
                                 cur_value_reg0[15:0] = cur_value_reg0[15:0] - 1;
-                                state0_wire_0 = 1'b1;//最低位设置为1 表示定时到
+                                if(timer0_read==1'b0)//如果当前没有读过寄存器
+                                    state0_wire_0 = 1'b1;//最低位设置为1 表示定时到
+                                else 
+                                    state0_wire_0 = 1'b0;
                             end
                         else
                             begin
@@ -208,13 +259,13 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
             end
     end
 
-    always @(posedge Pulse1 or negedge Reset)//定时器0计数模式
+    always @(posedge Pulse1 or negedge Reset)//定时器1计数模式
     begin
         if(Reset == 1'b0)
             begin
                 state1_wire_15Cnt = 1'b0;//正在运行指示位  
                 cur_cnt_value_reg1[15:0] = 0;  
-                keep_on_cnt_reg1 = 1;          
+                keep_on_cnt_reg1 = 1;        
             end
         else//Pulse0 == 1'b1 
             begin
@@ -229,7 +280,11 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
                     else
                         begin
                             cur_cnt_value_reg1 = 0;
-                            state1_wire_1 = 1; //计数到
+                            if(timer1_read == 1'b0)
+                                state1_wire_1 = 1; //计数到
+                            else
+                                state1_wire_1 = 0;
+
                             if(function_reg1[1] == 1'b0)//判断当前是否是循环模式
                                 begin
                                     keep_on_cnt_reg1 = 0;
@@ -246,7 +301,7 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
      end
 
     
-    always @(posedge Clk or negedge Reset)//定时器0 定时功能
+    always @(posedge Clk or negedge Reset)//定时器1 定时功能
     begin
         if(Reset == 1'b0)
             begin
@@ -260,7 +315,6 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
             begin
                 cur_value_reg1[15:0]=target_counter_reg1[15:0];
                 run_one_period1 = 1;
-                refresh_reg1 = 0;
             end
         else
             begin
@@ -277,7 +331,10 @@ input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input Ior ,input [1
                             begin
                                 Cout1 = 0;//输出一个低电平
                                 cur_value_reg1[15:0] = cur_value_reg1[15:0] - 1;
-                                state1_wire_0 = 1'b1;//最低位设置为1 表示定时到
+                                if(timer1_read==1'b0)   
+                                    state1_wire_0 = 1'b1;//最低位设置为1 表示定时到
+                                else 
+                                    state1_wire_0 = 1'b0;
                             end
                         else
                             begin

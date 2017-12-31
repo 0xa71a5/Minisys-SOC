@@ -1,8 +1,9 @@
 Vivado Simulator 2016.2
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto bf4d60825a14418bb25d40e51d870108 --debug typical --relax --mt 2 -L xil_defaultlib -L xpm -L blk_mem_gen_v8_3_3 -L unisims_ver -L unimacro_ver -L secureip --snapshot sim_line_simple_behav xil_defaultlib.sim_line_simple xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto bf4d60825a14418bb25d40e51d870108 --debug typical --relax --mt 2 -L xil_defaultlib -L xpm -L blk_mem_gen_v8_3_3 -L unisims_ver -L unimacro_ver -L secureip --snapshot line_sim_behav xil_defaultlib.line_sim xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 32 for port pc4 [D:/FPGA/MiniSys/MiniSys.srcs/sim_1/new/line_sim.v:54]
 WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [D:/FPGA/MiniSys/MiniSys.ip_user_files/ipstatic/blk_mem_gen_v8_3_3/simulation/blk_mem_gen_v8_3.v:2415]
 Completed static elaboration
 Starting simulation data flow analysis
@@ -33,6 +34,8 @@ Compiling module xil_defaultlib.pipemem
 Compiling module xil_defaultlib.dev_timer
 Compiling module xil_defaultlib.dev_pwm
 Compiling module xil_defaultlib.dev_segment
+Compiling module xil_defaultlib.dev_keyboard
+Compiling module xil_defaultlib.dev_switches
 Compiling module xil_defaultlib.pipedevices
 Compiling module xil_defaultlib.MemorIo
 Compiling module xil_defaultlib.dffe32
@@ -54,6 +57,6 @@ Compiling module xil_defaultlib.pipeexe
 Compiling module xil_defaultlib.pipeemreg
 Compiling module xil_defaultlib.pipemwreg
 Compiling module xil_defaultlib.pipelinedcpu
-Compiling module xil_defaultlib.sim_line_simple
+Compiling module xil_defaultlib.line_sim
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot sim_line_simple_behav
+Built simulation snapshot line_sim_behav

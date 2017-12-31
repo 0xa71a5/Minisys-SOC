@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Wed Dec 27 20:47:48 2017">
+<application name="pa" timeStamp="Sun Dec 31 23:07:27 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="2fb03f9b2e7442bcbe142eadec024128" type="ProjectID"/>
-<property name="ProjectIteration" value="6" type="ProjectIteration"/>
+<property name="ProjectIteration" value="43" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,38 +17,44 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="16" type="JavaHandler"/>
-<property name="AutoConnectTarget" value="6" type="JavaHandler"/>
-<property name="CloseProject" value="0" type="JavaHandler"/>
-<property name="CloseServer" value="1" type="JavaHandler"/>
+<property name="AddSources" value="20" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="39" type="JavaHandler"/>
+<property name="CloseProject" value="2" type="JavaHandler"/>
+<property name="CloseServer" value="2" type="JavaHandler"/>
+<property name="CloseTarget" value="2" type="JavaHandler"/>
 <property name="CoreView" value="2" type="JavaHandler"/>
-<property name="EditDelete" value="3" type="JavaHandler"/>
+<property name="CreateHardwareDashboards" value="1" type="JavaHandler"/>
+<property name="EditDelete" value="5" type="JavaHandler"/>
 <property name="EditProperties" value="2" type="JavaHandler"/>
 <property name="EditRedo" value="1" type="JavaHandler"/>
-<property name="LaunchOpenTarget" value="2" type="JavaHandler"/>
-<property name="LaunchProgramFpga" value="1" type="JavaHandler"/>
-<property name="ManageCompositeTargets" value="74" type="JavaHandler"/>
-<property name="OpenHardwareManager" value="2" type="JavaHandler"/>
-<property name="OpenRecentTarget" value="1" type="JavaHandler"/>
+<property name="LaunchOpenTarget" value="3" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="32" type="JavaHandler"/>
+<property name="ManageCompositeTargets" value="106" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="25" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="5" type="JavaHandler"/>
+<property name="OpenTarget" value="1" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
 <property name="RecustomizeCore" value="16" type="JavaHandler"/>
-<property name="RefreshServer" value="1" type="JavaHandler"/>
+<property name="RefreshServer" value="3" type="JavaHandler"/>
+<property name="RefreshTarget" value="2" type="JavaHandler"/>
 <property name="ReportIPStatus" value="2" type="JavaHandler"/>
-<property name="RunBitgen" value="2" type="JavaHandler"/>
+<property name="RunBitgen" value="39" type="JavaHandler"/>
 <property name="RunImplementation" value="3" type="JavaHandler"/>
-<property name="RunSynthesis" value="16" type="JavaHandler"/>
-<property name="SaveDesign" value="1" type="JavaHandler"/>
-<property name="SaveFileProxyHandler" value="4" type="JavaHandler"/>
-<property name="SetTopNode" value="13" type="JavaHandler"/>
-<property name="ShowView" value="9" type="JavaHandler"/>
+<property name="RunSynthesis" value="17" type="JavaHandler"/>
+<property name="SaveDesign" value="2" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="10" type="JavaHandler"/>
+<property name="SetTopNode" value="21" type="JavaHandler"/>
+<property name="ShowView" value="18" type="JavaHandler"/>
 <property name="SimulationClose" value="1" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="94" type="JavaHandler"/>
-<property name="SimulationRun" value="34" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="4" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="154" type="JavaHandler"/>
+<property name="SimulationRun" value="47" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="11" type="JavaHandler"/>
 <property name="ToggleViewNavigator" value="1" type="JavaHandler"/>
+<property name="ToolsOptions" value="1" type="JavaHandler"/>
 <property name="ToolsTemplates" value="1" type="JavaHandler"/>
 <property name="UpgradeIP" value="3" type="JavaHandler"/>
-<property name="ViewTaskSynthesis" value="2" type="JavaHandler"/>
+<property name="ViewTaskRTLAnalysis" value="1" type="JavaHandler"/>
+<property name="ViewTaskSynthesis" value="5" type="JavaHandler"/>
 <property name="WaveformSaveConfiguration" value="2" type="JavaHandler"/>
 <property name="ui.views.b.h.e" value="1" type="JavaHandler"/>
 </item>

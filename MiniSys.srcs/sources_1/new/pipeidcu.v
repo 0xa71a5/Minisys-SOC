@@ -174,7 +174,8 @@ assign shift = i_sll | i_srl | i_sra;
 assign aluimm = i_addi | i_addiu | i_andi | i_ori | i_xori | i_lw | i_lui | i_sw | i_lb | i_lbu | 
 i_lh | i_lhu | i_sb | i_sh | i_slti | i_sltiu;
 //need the operation of [sign-extend]
-assign sext = i_addi | i_addiu | i_lb | i_lh | i_sb | i_sh | i_lw | i_sw | i_slti;
+assign sext = i_addi | i_addiu | i_lb | i_lh | i_sb | i_sh | i_lw | i_sw | i_slti | i_beq | i_bgez |
+i_bgezal | i_bgtz | i_blez | i_bltz | i_bltzal | i_bne;
 //alu control
 
 assign aluc [3] = i_sra | i_addu | i_lbu | i_lhu | i_addiu | i_subu | i_nor | i_srav |
@@ -199,3 +200,4 @@ assign lmem [2] = i_lbu | i_lhu;
 assign smem [0] = i_sb;
 assign smem [1] = i_sh;
 endmodule
+ 

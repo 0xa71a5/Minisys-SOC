@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Wed Dec 27 20:52:49 2017
+| Date         : Sun Dec 31 23:11:59 2017
 | Host         : DESKTOP-EUIKP9S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file pipelinedcpu_control_sets_placed.rpt
 | Design       : pipelinedcpu
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |   233 |
-| Unused register locations in slices containing registers |   791 |
+| Number of unique control sets                            |    57 |
+| Unused register locations in slices containing registers |    78 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,254 +33,78 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               5 |            3 |
-| No           | No                    | Yes                    |             332 |          146 |
+| No           | No                    | No                     |              25 |           14 |
+| No           | No                    | Yes                    |             359 |          143 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |            1168 |          653 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              51 |           22 |
+| Yes          | No                    | Yes                    |            1218 |          508 |
+| Yes          | Yes                   | No                     |               5 |            3 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------+------------------------------------+----------------------------------------+------------------+----------------+
-|      Clock Signal     |            Enable Signal           |            Set/Reset Signal            | Slice Load Count | Bel Load Count |
-+-----------------------+------------------------------------+----------------------------------------+------------------+----------------+
-|  clock_BUFG           |                                    |                                        |                1 |              1 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-|  inputclock_IBUF_BUFG |                                    |                                        |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           |                                    |                                        |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                1 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/register[1][5]_i_2_n_0     |                2 |              2 |
-|  inputclock_IBUF_BUFG |                                    | mw_reg/wrn_reg[4]_0                    |                3 |              4 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[11][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[12][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/mem_io_stage/clear         |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[15][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/mem_io_stage/clear         |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[13][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/mem_io_stage/clear         |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[14][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[16][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[17][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[18][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[20][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[21][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[22][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[19][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[23][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[24][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[25][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[26][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/mem_io_stage/clear         |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[27][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/mem_io_stage/clear         |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[28][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                1 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[29][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/mem_io_stage/clear         |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[2][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[30][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/register[1][21]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/register[1][26]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/register[1][6]_i_2_n_0     |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[3][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/mem_io_stage/clear         |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[4][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/mem_io_stage/clear         |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[5][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/mem_io_stage/clear         |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[31][0][0]      | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/register[1][16]_i_2_n_0    |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                5 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/register[1][21]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[7][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/register[1][26]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[8][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/mem_io_stage/clear         |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/register[1][16]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/register[1][21]_i_2_n_0    |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/register[1][26]_i_2_n_0    |                4 |              5 |
-| ~clock_BUFG           | mw_reg/E[0]                        | id_stage/rf/register[1][6]_i_2_n_0     |                4 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[9][0][0]       | id_stage/rf/register[1][6]_i_2_n_0     |                3 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[10][0][0]      | id_stage/rf/mem_io_stage/clear         |                2 |              5 |
-| ~clock_BUFG           | mw_reg/register_reg[6][0][0]       | id_stage/rf/register[1][11]_i_2_n_0    |                2 |              5 |
-|  clock_BUFG           |                                    | mem_io_stage/devices/seg0/ens_reg[7]_0 |                7 |             14 |
-|  inputclock_IBUF_BUFG |                                    | mem_io_stage/devices/seg0/ens_reg[7]_0 |                4 |             14 |
-|  clock_BUFG           | em_reg/low4_data_reg_reg[15][0]    | mem_io_stage/devices/seg0/ens_reg[7]_0 |                3 |             16 |
-|  clock_BUFG           | em_reg/E[0]                        | mem_io_stage/devices/seg0/ens_reg[7]_0 |                4 |             16 |
-|  clock_BUFG           | em_reg/display_ctrl_reg_reg[15][0] | mem_io_stage/devices/seg0/ens_reg[7]_0 |                4 |             16 |
-|  clock_BUFG           | em_reg/comp_val_reg_reg[15][0]     | mem_io_stage/devices/seg0/ens_reg[7]_0 |                5 |             16 |
-|  clock_BUFG           | em_reg/max_val_reg_reg[15][0]      | mem_io_stage/devices/seg0/ens_reg[7]_0 |                4 |             16 |
-|  clock_BUFG           | de_reg/E[0]                        | mem_io_stage/devices/seg0/ens_reg[7]_0 |               12 |             19 |
-|  clock_BUFG           |                                    | inst_reg/pc_plus4/q_reg[31]_0          |               30 |             50 |
-|  clock_BUFG           | de_reg/E[0]                        | inst_reg/pc_plus4/q_reg[31]_0          |               34 |             77 |
-|  clock_BUFG           |                                    | mw_reg/wrn_reg[4]_0                    |               42 |            123 |
-|  clock_BUFG           |                                    | de_reg/epc4_reg[31]_0                  |               60 |            127 |
-+-----------------------+------------------------------------+----------------------------------------+------------------+----------------+
++-----------------------+----------------------------------------------------------------+----------------------+------------------+----------------+
+|      Clock Signal     |                          Enable Signal                         |   Set/Reset Signal   | Slice Load Count | Bel Load Count |
++-----------------------+----------------------------------------------------------------+----------------------+------------------+----------------+
+|  clock_BUFG           | mem_io_stage/devices/timer01/Cout0_i_1_n_0                     | reset_IBUF_BUFG      |                1 |              1 |
+|  clock_BUFG           | mem_io_stage/devices/timer01/Cout1_i_1_n_0                     | reset_IBUF_BUFG      |                1 |              1 |
+|  lopt_1               |                                                                |                      |                1 |              1 |
+|  inputclock_IBUF_BUFG |                                                                |                      |                1 |              2 |
+| ~clock_BUFG           |                                                                |                      |                1 |              2 |
+|  clock_BUFG           |                                                                |                      |                3 |              4 |
+|  lopt_1               | mem_io_stage/devices/keyboard0/Col[3]_i_1_n_0                  | reset_IBUF_BUFG      |                1 |              4 |
+|  lopt_1               | mem_io_stage/devices/keyboard0/FSM_sequential_state[3]_i_1_n_0 | reset_IBUF_BUFG      |                2 |              4 |
+|  clock_BUFG           | em_reg/Rdata_reg[15]                                           | em_reg/Rdata_reg[12] |                3 |              5 |
+|  lopt_1               | mem_io_stage/devices/keyboard0/key_reg__0                      | reset_IBUF_BUFG      |                2 |              6 |
+|  clock_BUFG           | mem_io_stage/devices/keyboard0/E[0]                            |                      |                5 |              8 |
+|  clock_BUFG           | em_reg/Rdata_reg[15]                                           |                      |                6 |             11 |
+|  lopt_1               |                                                                | reset_IBUF_BUFG      |                6 |             15 |
+|  clock_BUFG           | em_reg/target_counter_reg0_reg[15][0]                          |                      |                7 |             16 |
+|  clock_BUFG           | em_reg/target_counter_reg1_reg[15][0]                          |                      |                4 |             16 |
+| ~reset_IBUF           |                                                                |                      |                8 |             16 |
+|  clock_BUFG           | em_reg/E[0]                                                    | reset_IBUF_BUFG      |                5 |             16 |
+|  clock_BUFG           | em_reg/comp_val_reg_reg[15][0]                                 | reset_IBUF_BUFG      |                4 |             16 |
+|  clock_BUFG           | em_reg/display_ctrl_reg_reg[15][0]                             | reset_IBUF_BUFG      |                3 |             16 |
+|  clock_BUFG           | em_reg/high4_data_reg_reg[15][0]                               | reset_IBUF_BUFG      |                3 |             16 |
+|  clock_BUFG           | em_reg/low4_data_reg_reg[15][0]                                | reset_IBUF_BUFG      |                3 |             16 |
+|  clock_BUFG           | mem_io_stage/devices/timer01/cur_value_reg0[15]_i_1_n_0        | reset_IBUF_BUFG      |                7 |             17 |
+|  clock_BUFG           | mem_io_stage/devices/timer01/cur_value_reg1[15]_i_1_n_0        | reset_IBUF_BUFG      |                6 |             17 |
+|  inputclock_IBUF_BUFG |                                                                | reset_IBUF_BUFG      |                8 |             23 |
+| ~clock_BUFG           | mw_reg/register_reg[2][0][0]                                   | reset_IBUF_BUFG      |               16 |             32 |
+| ~clock_BUFG           | mw_reg/E[0]                                                    | reset_IBUF_BUFG      |               18 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[10][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[11][0][0]                                  | reset_IBUF_BUFG      |               10 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[12][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[15][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[21][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[22][0][0]                                  | reset_IBUF_BUFG      |               18 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[23][0][0]                                  | reset_IBUF_BUFG      |               20 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[24][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[25][0][0]                                  | reset_IBUF_BUFG      |                7 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[26][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[27][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[28][0][0]                                  | reset_IBUF_BUFG      |               15 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[29][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[3][0][0]                                   | reset_IBUF_BUFG      |               14 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[30][0][0]                                  | reset_IBUF_BUFG      |               21 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[31][0][0]                                  | reset_IBUF_BUFG      |               20 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[18][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[4][0][0]                                   | reset_IBUF_BUFG      |               15 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[5][0][0]                                   | reset_IBUF_BUFG      |               16 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[6][0][0]                                   | reset_IBUF_BUFG      |               21 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[7][0][0]                                   | reset_IBUF_BUFG      |               24 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[8][0][0]                                   | reset_IBUF_BUFG      |               17 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[9][0][0]                                   | reset_IBUF_BUFG      |               22 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[19][0][0]                                  | reset_IBUF_BUFG      |                9 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[20][0][0]                                  | reset_IBUF_BUFG      |                6 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[17][0][0]                                  | reset_IBUF_BUFG      |                8 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[16][0][0]                                  | reset_IBUF_BUFG      |                6 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[14][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG           | mw_reg/register_reg[13][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
+|  clock_BUFG           | de_reg/E[0]                                                    | reset_IBUF_BUFG      |               36 |             96 |
+|  clock_BUFG           |                                                                | reset_IBUF_BUFG      |              129 |            321 |
++-----------------------+----------------------------------------------------------------+----------------------+------------------+----------------+
 
 

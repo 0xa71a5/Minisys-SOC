@@ -21,7 +21,7 @@
 
 
 module dev_segment(
-input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input [15:0] Wdata,output [7:0] digital,output [7:0] ens
+input Reset,input [2:0] Address,input Cs,input Clk,input Iow,input [15:0] Wdata,output [7:0] digital,output [7:0] ens,input segment_clock
     );
     
 reg [3:0] sw=0;
@@ -60,7 +60,7 @@ begin
 end
 
 reg dot_enable_current = 0;
-always @(posedge Clk or negedge Reset)
+always @(posedge segment_clock or negedge Reset)//Beforo,here clock is Clk ,but now i changed it to a slower clock segment_clock
 begin
     if(Reset == 0)
         begin

@@ -17,7 +17,7 @@ set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 add_files D:/FPGA/MiniSys/MiniSys.srcs/sources_1/test_dmem32.coe
-add_files d:/FPGA/MiniSys/MiniSys.srcs/sources_1/rom.coe
+add_files D:/FPGA/MiniSys/MiniSys.srcs/sources_1/rom.coe
 read_ip -quiet D:/FPGA/MiniSys/MiniSys.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
 set_property used_in_implementation false [get_files -all d:/FPGA/MiniSys/MiniSys.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 set_property is_locked true [get_files D:/FPGA/MiniSys/MiniSys.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
@@ -35,26 +35,29 @@ read_verilog -library xil_defaultlib {
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/cla_16.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/cla_32.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/cla32.v
-  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/shift.v
-  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/mux8x32.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/dev_switches.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/devices/dev_timer.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/devices/dev_segment.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/devices/dev_pwm.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/devices/dev_keyboard.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/shift.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/mux8x32.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/alucontrol.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/addsub32.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/mux4x32.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/dffe32.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipedevices.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipeimem.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/regfile.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipemem.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipeidcu.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipeidcp.v
-  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipedevices.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/mux2x5.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/mux2x32.v
-  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/dffe32.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/alu.v
+  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipepc.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/imports/new/clockDiv.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipeif.v
-  D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipepc.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipemwreg.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipeir.v
   D:/FPGA/MiniSys/MiniSys.srcs/sources_1/new/pipeid.v
