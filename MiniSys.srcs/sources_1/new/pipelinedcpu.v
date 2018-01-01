@@ -107,7 +107,7 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     
                           
     pipepc progcnt (npc,wpcir,clock,resetn,pc);
-    pipeir inst_reg (pc4,ins,wpcir,clock,resetn,dpc4,inst);
+    pipeir inst_reg (pc4,ins,wpcir,clock,resetn,dpc4,inst,pcsource);
     pipeid id_stage (mwreg,mrn,ern,ewreg,em2reg,mm2reg,dpc4,inst,
                      wrn,wdi,ealu,malu,mmo,wwreg,clock,resetn,
                      bpc,jpc,pcsource,wpcir,dwreg,dm2reg,dwmem,
