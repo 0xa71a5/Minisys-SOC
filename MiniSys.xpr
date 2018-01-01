@@ -25,20 +25,20 @@
     <Option Name="IPUserFilesDir" Val="$PPRDIR/MiniSys.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/MiniSys.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="372"/>
+    <Option Name="WTXSimLaunchSim" Val="382"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="61"/>
-    <Option Name="WTModelSimExportSim" Val="61"/>
-    <Option Name="WTQuestaExportSim" Val="61"/>
-    <Option Name="WTIesExportSim" Val="61"/>
-    <Option Name="WTVcsExportSim" Val="61"/>
-    <Option Name="WTRivieraExportSim" Val="61"/>
-    <Option Name="WTActivehdlExportSim" Val="61"/>
+    <Option Name="WTXSimExportSim" Val="73"/>
+    <Option Name="WTModelSimExportSim" Val="73"/>
+    <Option Name="WTQuestaExportSim" Val="73"/>
+    <Option Name="WTIesExportSim" Val="73"/>
+    <Option Name="WTVcsExportSim" Val="73"/>
+    <Option Name="WTRivieraExportSim" Val="73"/>
+    <Option Name="WTActivehdlExportSim" Val="73"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">

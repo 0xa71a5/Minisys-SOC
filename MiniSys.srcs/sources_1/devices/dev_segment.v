@@ -128,7 +128,7 @@ begin
             end
         end 
 end
-
+ 
 always @(sw)
 begin
         case(sw)
