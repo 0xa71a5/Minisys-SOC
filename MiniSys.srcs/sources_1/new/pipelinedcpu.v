@@ -18,9 +18,9 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module pipelinedcpu(inputclock,reset,cnt0,cnt1,pwm,digital,ens,Line,Col,switches);//下载板子时用这个
+//module pipelinedcpu(inputclock,reset,cnt0,cnt1,pwm,digital,ens,Line,Col,switches);//下载板子时用这个
+ 
 
-/*
 module pipelinedcpu
 (inputclock,reset,pc,inst,ealu,malu,walu,
 cnt0,cnt1,pwm,digital,ens,switches,Line,Col,
@@ -42,7 +42,7 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     output dwmem,ewmem,mwmem;//debug
     output clock;
     //debug end
-   */
+
 
     //定义外设的输入输出GPIO
     //input pulse0;
@@ -65,13 +65,13 @@ da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone
     wire keyboard_clock;
     
     //仿真的时候用下面的时钟
-    //clockDiv sysclkdivider(inputclock,clock,resetn,32'd5);//仿真时候用这个
-    //clockDiv segmentdivider(inputclock,segment_clock,resetn,32'd5);//仿真时候用这个
+    clockDiv sysclkdivider(inputclock,clock,resetn,32'd5);//仿真时候用这个
+    clockDiv segmentdivider(inputclock,segment_clock,resetn,32'd5);//仿真时候用这个
     //debug end
     
     
-    clockDiv sysclkdivider(inputclock,clock,resetn,32'd5);//下载板子时用这个 1khz
-    clockDiv segmentdivider(inputclock,segment_clock,resetn,32'd50000);//下载板子时数码管刷新时钟
+    //clockDiv sysclkdivider(inputclock,clock,resetn,32'd5);//下载板子时用这个 1khz
+    //clockDiv segmentdivider(inputclock,segment_clock,resetn,32'd50000);//下载板子时数码管刷新时钟
     assign keyboard_clock = segment_clock;
      
     wire [3:0] wea;

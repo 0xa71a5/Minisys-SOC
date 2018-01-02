@@ -35,7 +35,7 @@ module pipeexe(ealuc,ealuimm,ea,eb,eimm,eshift,ern0,epc4,ejal,ejalr,ern,ealu);
     cla32 ret_addr (epc4,32'h4,1'b0,epc8);
     mux2x32 alu_ina (ea,sa,eshift,alua);
     mux2x32 alu_inb (eb,eimm,ealuimm,alub);
-    mux2x32 save_pc8 (ealu0,epc8,ejal,ealu);
+    mux2x32 save_pc8 (ealu0,epc4,ejal,ealu);//这里之前是epc8  后来改成了epc4
     assign jal_jalr = ejal & (~ejalr);
     assign ern = ern0 | {5{jal_jalr}};
     alu al_unit (alua,alub,ealuc,ealu0,z);

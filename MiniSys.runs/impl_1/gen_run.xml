@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1514789178">
-  <File Type="OPT-DCP" Name="pipelinedcpu_opt.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1514871911">
   <File Type="ROUTE-STATUS-PB" Name="pipelinedcpu_route_status.pb"/>
   <File Type="PA-TCL" Name="pipelinedcpu.tcl"/>
+  <File Type="OPT-DCP" Name="pipelinedcpu_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="pipelinedcpu_timing_summary_init.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="pipelinedcpu_methodology_drc_opted.rpt"/>
   <File Type="RDI-RDI" Name="pipelinedcpu.vdi"/>
   <File Type="PWROPT-DRC" Name="pipelinedcpu_drc_pwropted.rpt"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="pipelinedcpu_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="pipelinedcpu_timing_summary_init.rpt"/>
   <File Type="OPT-DRC" Name="pipelinedcpu_drc_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="pipelinedcpu_pwropt.dcp"/>
   <File Type="OPT-HWDEF" Name="pipelinedcpu.hwdef"/>
@@ -31,8 +31,8 @@
   <File Type="ROUTE-DRC" Name="pipelinedcpu_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="pipelinedcpu_drc_routed.pb"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="pipelinedcpu_methodology_drc_routed.rpt"/>
-  <File Type="BG-BIT" Name="pipelinedcpu.bit"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="pipelinedcpu_methodology_drc_routed.pb"/>
+  <File Type="BG-BIT" Name="pipelinedcpu.bit"/>
   <File Type="ROUTE-PWR" Name="pipelinedcpu_power_routed.rpt"/>
   <File Type="ROUTE-PWR-SUM" Name="pipelinedcpu_power_summary_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="pipelinedcpu_power_routed.rpx"/>
@@ -348,14 +348,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/TextPC4.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/ip/blk_mem_gen_0.xcix">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -365,6 +357,14 @@
     </File>
     <File Path="$PSRCDIR/sources_1/ip/blk_mem_gen_1.xcix">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/TextPC4.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
