@@ -149,7 +149,7 @@ begin
             4'he:digital=8'b01100001&{7'b1111111,~dot_enable_current};
             4'hf:digital=8'b01110001&{7'b1111111,~dot_enable_current};
         default:
-            digital=8'bx;
+            digital=8'b0;
         endcase
 end
 

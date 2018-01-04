@@ -22,7 +22,8 @@
 
 module pipedevices(
 input we,input [31:0] address,input [31:0] datain,input clk,input reset,output [31:0] dataout,input enable,
-input pulse0,input pulse1,output cnt0,output cnt1,output pwm,output [7:0] digital,output [7:0] ens,input segment_clock,input keyboard_clock,input [3:0] Line,output [3:0] Col,input [15:0] switches//外设线
+input pulse0,input pulse1,output cnt0,output cnt1,output pwm,output [7:0] digital,output [7:0] ens,input segment_clock,input keyboard_clock,input [3:0] Line,output [3:0] Col,input [15:0] switches,
+output [15:0] leds,output beep//外设线
 );
 //debug
 
@@ -88,7 +89,27 @@ wire Iow_switches;
 assign Iow_switches = we;
 assign Ior_switches = ~we;
 assign dataout_switches[31:16] = 0;
-assign cs_switches = enable&cs_bus[7];    
+assign cs_switches = enable&cs_bus[7]; 
+
+//definitions for leds
+wire cs_leds;
+wire [31:0] dataout_leds;
+wire Ior_leds;
+wire Iow_leds;
+assign Iow_leds = we;
+assign Ior_leds = ~we;
+assign dataout_leds = 0;
+assign cs_leds = enable&cs_bus[6];
+
+//definitions for beep   
+wire cs_beep;
+wire [31:0] dataout_beep;
+wire Ior_beep;
+wire Iow_beep;
+assign Iow_beep = we;
+assign Ior_beep = ~we;
+assign dataout_beep = 0;
+assign cs_beep = enable&cs_bus[13];//0x0d
     
 //4-16译码器
 always @(address[7:0] or reset)
@@ -106,14 +127,14 @@ case(address[7:4])
 4'd3:begin cs_bus<=16'b0000_0000_0000_1000;dataout<=dataout_pwm  ; end
 4'd4:begin cs_bus<=16'b0000_0000_0001_0000;dataout<=32'd0; end
 4'd5:begin cs_bus<=16'b0000_0000_0010_0000;dataout<=32'd0; end
-4'd6:begin cs_bus<=16'b0000_0000_0100_0000;dataout<=32'd0; end
+4'd6:begin cs_bus<=16'b0000_0000_0100_0000;dataout<=dataout_leds; end
 4'd7:begin cs_bus<=16'b0000_0000_1000_0000;dataout<=dataout_switches; end
 4'd8:begin cs_bus<=16'b0000_0001_0000_0000;dataout<=32'd0; end
 4'd9:begin cs_bus<=16'b0000_0010_0000_0000;dataout<=32'd0; end
 4'd10:begin cs_bus<=16'b0000_0100_0000_0000;dataout<=32'd0; end
 4'd11:begin cs_bus<=16'b0000_1000_0000_0000;dataout<=32'd0; end
 4'd12:begin cs_bus<=16'b0001_0000_0000_0000;dataout<=32'd0; end
-4'd13:begin cs_bus<=16'b0010_0000_0000_0000;dataout<=32'd0; end
+4'd13:begin cs_bus<=16'b0010_0000_0000_0000;dataout<=dataout_beep; end
 4'd14:begin cs_bus<=16'b0100_0000_0000_0000;dataout<=32'd0; end
 4'd15:begin cs_bus<=16'b1000_0000_0000_0000;dataout<=32'd0; end
 endcase
@@ -126,5 +147,6 @@ dev_pwm pwm0(reset,address[2:0],cs_pwm,clk,Iow_pwm,datain[15:0],pwm);
 dev_segment seg0(reset,address[2:0],cs_seg,clk,Iow_seg,datain[15:0],digital,ens,segment_clock);
 dev_keyboard keyboard0(reset,address[1:0],cs_keyboard,clk,Ior_keyboard,dataout_keyboard[15:0],keyboard_clock,Line,Col);
 dev_switches switches0(reset,address[2:0],cs_switches,clk,Iow_switches,Ior_switches,datain[15:0],dataout_switches[15:0],switches);//Error
-    
+dev_leds leds0(reset,address[2:0],cs_leds,clk,Iow_leds,datain[15:0],leds);
+dev_beep beep0(reset,address[2:0],cs_beep,clk,Iow_beep,datain[15:0],beep);    
 endmodule

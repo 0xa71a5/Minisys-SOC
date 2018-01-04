@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Jan 02 13:50:58 2018
+| Date         : Thu Jan 04 14:09:12 2018
 | Host         : DESKTOP-EUIKP9S running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file pipelinedcpu_timing_summary_routed.rpt -rpx pipelinedcpu_timing_summary_routed.rpx
 | Design       : pipelinedcpu
@@ -52,13 +52,13 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 40 register/latch pins with no clock driven by root clock pin: inputclock (HIGH)
+ There are 71 register/latch pins with no clock driven by root clock pin: inputclock (HIGH)
 
  There are 16 register/latch pins with no clock driven by root clock pin: reset (HIGH)
 
  There are 29 register/latch pins with no clock driven by root clock pin: segmentdivider/clk_sys_reg/C (HIGH)
 
- There are 1605 register/latch pins with no clock driven by root clock pin: sysclkdivider/clk_sys_reg/C (HIGH)
+ There are 1664 register/latch pins with no clock driven by root clock pin: sysclkdivider/clk_sys_reg/C (HIGH)
 
 
 2. checking constant_clock
@@ -73,7 +73,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 5067 pins that are not constrained for maximum delay. (HIGH)
+ There are 5279 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -87,7 +87,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 23 ports with no output delay specified. (HIGH)
+ There are 40 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 

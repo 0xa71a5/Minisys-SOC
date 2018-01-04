@@ -23,7 +23,7 @@
 module MemorIo(
 we,smem,lmem,addr,datain,clk,dataout,reset,//注意这里和原来内存相比加了reset
 pulse0,pulse1,cnt0,cnt1,pwm, //外设的输入输出gpio线    
-    wea,digital,ens,segment_clock,keyboard_clock,Line,Col,switches
+    wea,digital,ens,segment_clock,keyboard_clock,Line,Col,switches,leds,beep
     );
     
     input keyboard_clock;
@@ -47,6 +47,8 @@ pulse0,pulse1,cnt0,cnt1,pwm, //外设的输入输出gpio线
     output cnt1;
     output pwm;
     input [15:0] switches;
+    output [15:0] leds;
+    output beep;
     output [3:0] wea;//debug
     
     wire addr_use_dev;
@@ -70,7 +72,7 @@ pulse0,pulse1,cnt0,cnt1,pwm, //外设的输入输出gpio线
     //debug end
     
     pipedevices devices(dev_we,addr,datain,clk,reset,dev_dataout,addr_use_dev,
-    pulse0,pulse1,cnt0,cnt1,pwm,digital,ens,segment_clock,keyboard_clock,Line,Col,switches//外设线
+    pulse0,pulse1,cnt0,cnt1,pwm,digital,ens,segment_clock,keyboard_clock,Line,Col,switches,leds,beep//外设线
     );
     
     assign dataout = addr_use_mem ? mem_dataout : dev_dataout;//数据输出选择

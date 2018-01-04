@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Jan 02 13:50:04 2018
+| Date         : Thu Jan 04 14:08:21 2018
 | Host         : DESKTOP-EUIKP9S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file pipelinedcpu_control_sets_placed.rpt
 | Design       : pipelinedcpu
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    58 |
-| Unused register locations in slices containing registers |    85 |
+| Number of unique control sets                            |    60 |
+| Unused register locations in slices containing registers |    83 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              25 |           11 |
-| No           | No                    | Yes                    |             360 |          130 |
+| No           | No                    | No                     |              25 |           14 |
+| No           | No                    | Yes                    |             418 |          167 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              50 |           19 |
-| Yes          | No                    | Yes                    |            1219 |          537 |
-| Yes          | Yes                   | No                     |               5 |            3 |
+| Yes          | No                    | No                     |              50 |           16 |
+| Yes          | No                    | Yes                    |            1251 |          548 |
+| Yes          | Yes                   | No                     |               5 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -51,61 +51,63 @@ Table of Contents
 |  segmentdivider/sw_reg[3] |                                                                |                      |                1 |              1 |
 |  clock_BUFG               | mem_io_stage/devices/timer01/Cout0_i_1_n_0                     | reset_IBUF_BUFG      |                1 |              1 |
 |  clock_BUFG               | mem_io_stage/devices/timer01/Cout1_i_1_n_0                     | reset_IBUF_BUFG      |                1 |              1 |
-| ~clock_BUFG               |                                                                |                      |                2 |              2 |
 |  inputclock_IBUF_BUFG     |                                                                |                      |                1 |              2 |
+| ~clock_BUFG               |                                                                |                      |                1 |              2 |
 |  segmentdivider/sw_reg[3] | mem_io_stage/devices/keyboard0/Col[3]_i_1_n_0                  | reset_IBUF_BUFG      |                1 |              4 |
 |  segmentdivider/sw_reg[3] | mem_io_stage/devices/keyboard0/FSM_sequential_state[3]_i_1_n_0 | reset_IBUF_BUFG      |                2 |              4 |
-|  clock_BUFG               |                                                                |                      |                2 |              4 |
+|  clock_BUFG               |                                                                |                      |                3 |              4 |
 |  segmentdivider/sw_reg[3] | mem_io_stage/devices/keyboard0/key_reg__0                      | reset_IBUF_BUFG      |                3 |              5 |
-|  clock_BUFG               | em_reg/Rdata_reg[15]                                           | em_reg/Rdata_reg[12] |                3 |              5 |
-|  clock_BUFG               | mem_io_stage/devices/keyboard0/E[0]                            |                      |                3 |              7 |
-|  clock_BUFG               | em_reg/Rdata_reg[15]                                           |                      |                4 |             11 |
-|  segmentdivider/sw_reg[3] |                                                                | reset_IBUF_BUFG      |                5 |             15 |
-| ~reset_IBUF               |                                                                |                      |                5 |             16 |
+|  clock_BUFG               | em_reg/Rdata_reg[15]                                           | em_reg/Rdata_reg[12] |                2 |              5 |
+|  clock_BUFG               | mem_io_stage/devices/keyboard0/E[0]                            |                      |                4 |              7 |
+|  clock_BUFG               | em_reg/Rdata_reg[15]                                           |                      |                5 |             11 |
+|  segmentdivider/sw_reg[3] |                                                                | reset_IBUF_BUFG      |                8 |             15 |
 |  clock_BUFG               | em_reg/E[0]                                                    | reset_IBUF_BUFG      |                4 |             16 |
 |  clock_BUFG               | em_reg/comp_val_reg_reg[15][0]                                 | reset_IBUF_BUFG      |                4 |             16 |
-|  clock_BUFG               | em_reg/display_ctrl_reg_reg[15][0]                             | reset_IBUF_BUFG      |                3 |             16 |
-|  clock_BUFG               | em_reg/high4_data_reg_reg[15][0]                               | reset_IBUF_BUFG      |                4 |             16 |
-|  clock_BUFG               | em_reg/low4_data_reg_reg[15][0]                                | reset_IBUF_BUFG      |                2 |             16 |
-|  clock_BUFG               | em_reg/target_counter_reg0_reg[15][0]                          |                      |                8 |             16 |
-|  clock_BUFG               | em_reg/target_counter_reg1_reg[15][0]                          |                      |                4 |             16 |
-|  clock_BUFG               | mem_io_stage/devices/timer01/cur_value_reg0[15]_i_1_n_0        | reset_IBUF_BUFG      |                7 |             17 |
+|  clock_BUFG               | em_reg/frequence_reg[15][0]                                    | reset_IBUF_BUFG      |                4 |             16 |
+|  clock_BUFG               | em_reg/high4_data_reg_reg[15][0]                               | reset_IBUF_BUFG      |                3 |             16 |
+|  clock_BUFG               | em_reg/leds_reg[15][0]                                         | reset_IBUF_BUFG      |                9 |             16 |
+|  clock_BUFG               | em_reg/low4_data_reg_reg[0][0]                                 | reset_IBUF_BUFG      |                4 |             16 |
+|  clock_BUFG               | em_reg/max_val_reg_reg[15][0]                                  | reset_IBUF_BUFG      |                4 |             16 |
+|  clock_BUFG               | em_reg/target_counter_reg0_reg[0][0]                           |                      |                4 |             16 |
+|  clock_BUFG               | em_reg/target_counter_reg1_reg[0][0]                           |                      |                3 |             16 |
+| ~reset_IBUF               |                                                                |                      |                8 |             16 |
+|  clock_BUFG               | mem_io_stage/devices/timer01/cur_value_reg0[15]_i_1_n_0        | reset_IBUF_BUFG      |                5 |             17 |
 |  clock_BUFG               | mem_io_stage/devices/timer01/cur_value_reg1[15]_i_1_n_0        | reset_IBUF_BUFG      |                5 |             17 |
-|  inputclock_IBUF_BUFG     |                                                                | reset_IBUF_BUFG      |                8 |             23 |
-| ~clock_BUFG               | mw_reg/E[0]                                                    | reset_IBUF_BUFG      |               13 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[10][0][0]                                  | reset_IBUF_BUFG      |               18 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[11][0][0]                                  | reset_IBUF_BUFG      |               17 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[12][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[15][0][0]                                  | reset_IBUF_BUFG      |               15 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[21][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[14][0][0]                                  | reset_IBUF_BUFG      |               17 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[16][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[17][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[18][0][0]                                  | reset_IBUF_BUFG      |               16 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[19][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[20][0][0]                                  | reset_IBUF_BUFG      |               10 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[22][0][0]                                  | reset_IBUF_BUFG      |               18 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[23][0][0]                                  | reset_IBUF_BUFG      |               18 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[24][0][0]                                  | reset_IBUF_BUFG      |               10 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[25][0][0]                                  | reset_IBUF_BUFG      |                9 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[26][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[27][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[29][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[2][0][0]                                   | reset_IBUF_BUFG      |               11 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[30][0][0]                                  | reset_IBUF_BUFG      |               22 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[31][0][0]                                  | reset_IBUF_BUFG      |               22 |             32 |
+|  clock_BUFG               | de_reg/wpcir                                                   | reset_IBUF_BUFG      |               20 |             32 |
+| ~clock_BUFG               | mw_reg/E[0]                                                    | reset_IBUF_BUFG      |                9 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[10][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[11][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[12][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[15][0][0]                                  | reset_IBUF_BUFG      |               16 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[13][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[14][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[16][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[17][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[18][0][0]                                  | reset_IBUF_BUFG      |               15 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[19][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[20][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[21][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[22][0][0]                                  | reset_IBUF_BUFG      |               16 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[23][0][0]                                  | reset_IBUF_BUFG      |               19 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[24][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[25][0][0]                                  | reset_IBUF_BUFG      |               11 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[26][0][0]                                  | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[27][0][0]                                  | reset_IBUF_BUFG      |               15 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[29][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[2][0][0]                                   | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[30][0][0]                                  | reset_IBUF_BUFG      |               23 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[31][0][0]                                  | reset_IBUF_BUFG      |               23 |             32 |
 | ~clock_BUFG               | mw_reg/register_reg[3][0][0]                                   | reset_IBUF_BUFG      |               12 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[4][0][0]                                   | reset_IBUF_BUFG      |               14 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[28][0][0]                                  | reset_IBUF_BUFG      |               14 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[6][0][0]                                   | reset_IBUF_BUFG      |               19 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[4][0][0]                                   | reset_IBUF_BUFG      |               12 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[28][0][0]                                  | reset_IBUF_BUFG      |               10 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[6][0][0]                                   | reset_IBUF_BUFG      |               21 |             32 |
 | ~clock_BUFG               | mw_reg/register_reg[7][0][0]                                   | reset_IBUF_BUFG      |               23 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[8][0][0]                                   | reset_IBUF_BUFG      |               14 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[9][0][0]                                   | reset_IBUF_BUFG      |               21 |             32 |
-|  clock_BUFG               | de_reg/wpcir                                                   | reset_IBUF_BUFG      |               18 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[13][0][0]                                  | reset_IBUF_BUFG      |               13 |             32 |
-| ~clock_BUFG               | mw_reg/register_reg[5][0][0]                                   | reset_IBUF_BUFG      |               14 |             32 |
-|  clock_BUFG               | inst_reg/instruction/E[0]                                      | reset_IBUF_BUFG      |               21 |             66 |
-|  clock_BUFG               |                                                                | reset_IBUF_BUFG      |              117 |            322 |
+| ~clock_BUFG               | mw_reg/register_reg[8][0][0]                                   | reset_IBUF_BUFG      |               18 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[9][0][0]                                   | reset_IBUF_BUFG      |               17 |             32 |
+| ~clock_BUFG               | mw_reg/register_reg[5][0][0]                                   | reset_IBUF_BUFG      |               12 |             32 |
+|  inputclock_IBUF_BUFG     |                                                                | reset_IBUF_BUFG      |               16 |             54 |
+|  clock_BUFG               | inst_reg/instruction/q_reg[31]_2[0]                            | reset_IBUF_BUFG      |               36 |             66 |
+|  clock_BUFG               |                                                                | reset_IBUF_BUFG      |              143 |            349 |
 +---------------------------+----------------------------------------------------------------+----------------------+------------------+----------------+
 
 

@@ -8,11 +8,17 @@ Exception at PC 0x00007FFA82919DBA
 Exception at PC 0x00007FFA82918AFD
 Exception at PC 0x00007FFA82919DBA
 Exception at PC 0x00007FFA82919DBA
+Unable to capture context for thread 112228 in process 72832, can not generate back trace
+Unable to capture context for thread 111476 in process 72832, can not generate back trace
+Unable to capture context for thread 92004 in process 72832, can not generate back trace
+Unable to capture context for thread 110680 in process 72832, can not generate back trace
+Unable to capture context for thread 112436 in process 72832, can not generate back trace
+Unable to capture context for thread 110844 in process 72832, can not generate back trace
 Exception at PC 0x00007FFA82919DBA
-Exception at PC 0x00007FFA56ABBB93
+Unable to capture context for thread 110680 in process 72832, can not generate back trace
+Exception at PC 0x00007FFA555BBB93
 Printing stacktrace...
 
-Unable to capture context for thread 300316 in process 300928, can not generate back trace
 Exception at PC 0x00007FFA82919DBA
 Exception at PC 0x00007FFA82919DBA
 Exception at PC 0x00007FFA82919DBA
@@ -26,24 +32,24 @@ Exception at PC 0x00007FFA82949D98
 Exception at PC 0x00007FFA82949D98
 Exception at PC 0x00007FFA82949D98
 Exception at PC 0x00007FFA82949D98
-[0]  [0x00007FFA56ABBB93]
-[1]  [0x00007FFA56ABBB93]
-[2]  [0x00007FFA56ABB4A1]
-[3]  [0x00007FFA56ABB3EF]
-[4]  [0x00007FFA56AA19FE]
-[5]  [0x00007FFA56AA0ED1]
-[6]  [0x00007FFA56AA0D76]
-[7]  [0x00007FFA56A479F6]
-[8]  [0x00007FFA56A37AFB]
-[9]  [0x00007FFA56B5E90A]
-[10]  [0x00007FFA56B79F87]
-[11]  [0x00007FFA56B7A05F]
+Exception at PC 0x00007FFA82949D98
+Exception at PC 0x00007FFA82949D98
+Exception at PC 0x00007FFA82949D98
+[0]  [0x00007FFA555BBB93]
+[1]  [0x00007FFA555BBB93]
+[2]  [0x00007FFA555BB4A1]
+[3]  [0x00007FFA555BB3EF]
+[4]  [0x00007FFA555A19FE]
+[5]  [0x00007FFA555A0ED1]
+[6]  [0x00007FFA555A0D76]
+[7]  [0x00007FFA555479F6]
+[8]  [0x00007FFA55537AFB]
+[9]  [0x00007FFA5565E90A]
+[10]  [0x00007FFA55679F87]
+[11]  [0x00007FFA5567A05F]
 [12] (BaseThreadInitThunk+0x14) [0x00007FFA85302774]
 [13] (RtlUserThreadStart+0x21) [0x00007FFA859D0D51]
 Done
-Exception at PC 0x00007FFA82949D98
-Exception at PC 0x00007FFA82949D98
-Exception at PC 0x00007FFA82949D98
 Exception at PC 0x00007FFA82949D98
 Exception at PC 0x00007FFA82949D98
 Exception at PC 0x00007FFA82949D98

@@ -27,6 +27,8 @@ module line_sim();
     wire [7:0] digital;
     wire [7:0] ens;
     reg [15:0] switches;
+    wire [15:0] leds;
+    wire beep;
     reg [3:0] Line;
     wire [3:0] Col;
     reg [31:0] i;
@@ -50,7 +52,7 @@ module line_sim();
     
     
     pipelinedcpu lline(clk,clr,pc,inst,ealu,malu,walu,
-    cnt0,cnt1,pwm,digital,ens,switches,Line,Col,
+    cnt0,cnt1,pwm,digital,ens,switches,Line,Col,leds,beep,
     da,db,dimm,pc4,dlmem,msmem,wea,dwmem,ewmem,mwmem,esmem,wdi,mb,wrn,compare,cpdone,clock//for test
     );
     always 
