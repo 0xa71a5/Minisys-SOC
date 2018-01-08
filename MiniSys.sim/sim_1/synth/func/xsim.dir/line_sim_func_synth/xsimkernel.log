@@ -2,3 +2,6 @@ Running: xsim.dir/line_sim_func_synth/xsimk.exe -simmode gui -wdb line_sim_func_
 Design successfully loaded
 Design Loading Memory Usage: 45220 KB (Peak: 45220 KB)
 Design Loading CPU Usage: 358 ms
+Simulation completed
+Simulation Memory Usage: 53488 KB (Peak: 53488 KB)
+Simulation CPU Usage: 5077 ms

@@ -25,20 +25,20 @@
     <Option Name="IPUserFilesDir" Val="$PPRDIR/MiniSys.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/MiniSys.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="437"/>
+    <Option Name="WTXSimLaunchSim" Val="445"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="100"/>
-    <Option Name="WTModelSimExportSim" Val="100"/>
-    <Option Name="WTQuestaExportSim" Val="100"/>
-    <Option Name="WTIesExportSim" Val="100"/>
-    <Option Name="WTVcsExportSim" Val="100"/>
-    <Option Name="WTRivieraExportSim" Val="100"/>
-    <Option Name="WTActivehdlExportSim" Val="100"/>
+    <Option Name="WTXSimExportSim" Val="123"/>
+    <Option Name="WTModelSimExportSim" Val="123"/>
+    <Option Name="WTQuestaExportSim" Val="123"/>
+    <Option Name="WTIesExportSim" Val="123"/>
+    <Option Name="WTVcsExportSim" Val="123"/>
+    <Option Name="WTRivieraExportSim" Val="123"/>
+    <Option Name="WTActivehdlExportSim" Val="123"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
@@ -619,7 +619,6 @@
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
-        <Option Name="SimMode" Val="post-synthesis"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="xsim.simulate.runtime" Val="10us"/>
         <Option Name="NLNetlistMode" Val="funcsim"/>
